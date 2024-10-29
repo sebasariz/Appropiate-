@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="AppropiatePU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.iammagis.appropiate.beans.Encuesta</class>
+    <class>com.iammagis.appropiate.beans.Submodulo</class>
+    <class>com.iammagis.appropiate.beans.Pqr</class>
+    <class>com.iammagis.appropiate.beans.Usuario</class>
+    <class>com.iammagis.appropiate.beans.ComentarioPqr</class>
+    <class>com.iammagis.appropiate.beans.Pregunta</class>
+    <class>com.iammagis.appropiate.beans.Respuesta</class>
+    <class>com.iammagis.appropiate.beans.Archivo</class>
+    <class>com.iammagis.appropiate.beans.Entidad</class>
+    <class>com.iammagis.appropiate.beans.Evento</class>
+    <class>com.iammagis.appropiate.beans.EventoHasUsuario</class>
+    <class>com.iammagis.appropiate.beans.Modulo</class>
+    <class>com.iammagis.appropiate.beans.TipoUsuario</class>
+    <class>com.iammagis.appropiate.beans.CampanaComunicados</class>
+    <class>com.iammagis.appropiate.beans.CampanaComunicadosHasUsuario</class>
+    <class>com.iammagis.appropiate.beans.Comentario</class>
+    <class>com.iammagis.appropiate.beans.Transaccion</class>
+    <class>com.iammagis.appropiate.beans.Factura</class>
+    <class>com.iammagis.appropiate.beans.Reserva</class>
+    <class>com.iammagis.appropiate.beans.Locacion</class>
+    <class>com.iammagis.appropiate.beans.FacturaTemplate</class>
+    <class>com.iammagis.appropiate.beans.Actividad</class>
+    <class>com.iammagis.appropiate.beans.ModuloHasUsuario</class>
+    <class>com.iammagis.appropiate.beans.SubmoduloHasUsuario</class>
+    <class>com.iammagis.appropiate.beans.EntidadHasUsuario</class>
+    <class>com.iammagis.appropiate.beans.GrupoInteres</class>
+    <class>com.iammagis.appropiate.beans.EncuestaHasUsuario</class>
+    <class>com.iammagis.appropiate.beans.LogUsuario</class>
+    <class>com.iammagis.appropiate.beans.UsuarioHasGrupoInteres</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/appropiate?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="sanignacio"/>
+      <property name="eclipselink.cache.shared.default" value="false"/>
+      <property name="eclipselink.cache.size.default" value="0"/>
+      <property name="eclipselink.cache.type.default" value="None"/>
+    </properties>
+  </persistence-unit>
+</persistence>

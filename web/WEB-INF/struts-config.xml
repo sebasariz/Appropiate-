@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="Usuario" type="com.iammagis.appropiate.beans.Usuario"/> 
+        <form-bean name="Entidad" type="com.iammagis.appropiate.beans.Entidad"/> 
+        <form-bean name="Evento" type="com.iammagis.appropiate.beans.Evento"/> 
+        <form-bean name="CampanaComunicados" type="com.iammagis.appropiate.beans.CampanaComunicados"/> 
+        <form-bean name="Encuesta" type="com.iammagis.appropiate.beans.Encuesta"/> 
+        <form-bean name="Locacion" type="com.iammagis.appropiate.beans.Locacion"/> 
+        <form-bean name="Reserva" type="com.iammagis.appropiate.beans.Reserva"/> 
+        <form-bean name="Actividad" type="com.iammagis.appropiate.beans.Actividad"/> 
+        <form-bean name="FacturaTemplate" type="com.iammagis.appropiate.beans.FacturaTemplate"/> 
+        <form-bean name="Factura" type="com.iammagis.appropiate.beans.Factura"/> 
+        <form-bean name="GrupoInteres" type="com.iammagis.appropiate.beans.GrupoInteres"/> 
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="login"  path="/Login.appropiate"/>
+    </global-forwards>
+
+    <action-mappings>
+        <!--USUARIOS-->
+        <action path="/Login" forward="/login.jsp"/> 
+        <action path="/LoadInicio" type="com.iammagis.appropiate.usuario.LoadInicio">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action> 
+        <action path="/EliminarUsuario" type="com.iammagis.appropiate.usuario.EliminarUsuario"/>
+        <action name="Usuario" path="/CrearUsuario" type="com.iammagis.appropiate.usuario.CrearUsuario"/>
+        <action name="Usuario" path="/EditarUsuario" type="com.iammagis.appropiate.usuario.EditarUsuario"/>
+        <action path="/LoadUsuarioJson" type="com.iammagis.appropiate.usuario.LoadUsuarioJson"/>
+        <action path="/LoadUsuarios" type="com.iammagis.appropiate.usuario.LoadUsuarios">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action> 
+        <action path="/LogOutUser" type="com.iammagis.appropiate.usuario.LogOutUser">
+            <forward name="success" path="/login.jsp"/>
+        </action>
+        <action name="Usuario" path="/LoginUser"  type="com.iammagis.appropiate.usuario.LoginUser">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+            <forward name="fail" path="/login.jsp"/>
+        </action>
+        <!--ENTIDAD-->
+        <action path="/EliminarEntidad" type="com.iammagis.appropiate.entidades.EliminarEntidad"/>
+        <action path="/LoadEntidadJson" type="com.iammagis.appropiate.entidades.LoadEntidadJson"/>
+        <action name="Entidad" path="/CrearEntidad" type="com.iammagis.appropiate.entidades.CrearEntidad"/>
+        <action name="Entidad" path="/EditarEntidad" type="com.iammagis.appropiate.entidades.EditarEntidad"/>
+        <action path="/LoadEntidades" type="com.iammagis.appropiate.entidades.LoadEntidades">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <!--ASIGNACION DE MODULOS-->
+        <action path="/LoadAsignacionModulos" type="com.iammagis.appropiate.asignacionmodulos.LoadAsignacionModulos">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/SaveSubmoduloUsuario" type="com.iammagis.appropiate.asignacionmodulos.SaveSubmoduloUsuario"/>
+        <action path="/LoadSubmodulosUsuario" type="com.iammagis.appropiate.asignacionmodulos.LoadSubmodulosUsuario"/>
+        <!--EVENTOS-->
+        <action path="/LoadEventos" type="com.iammagis.appropiate.eventos.LoadEventos">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/EliminarEvento" type="com.iammagis.appropiate.eventos.EliminarEvento"/>
+        <action path="/LoadEventoJson" type="com.iammagis.appropiate.eventos.LoadEventoJson"/>
+        <action name="Evento" path="/EditarEvento" type="com.iammagis.appropiate.eventos.EditarEvento"/>
+        <action name="Evento" path="/CrearEvento" type="com.iammagis.appropiate.eventos.CrearEvento"/>
+        <!--CAMPAÑAS-->
+        <action path="/LoadCampanas" type="com.iammagis.appropiate.campanas.LoadCampanas">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/EliminarCampana" type="com.iammagis.appropiate.campanas.EliminarCampana"/>
+        <action path="/LoadCampanaJson" type="com.iammagis.appropiate.campanas.LoadCampanaJson"/>
+        <action name="CampanaComunicados" path="/EditarCampana" type="com.iammagis.appropiate.campanas.EditarCampana"/>
+        <action name="CampanaComunicados" path="/CrearCampana" type="com.iammagis.appropiate.campanas.CrearCampana"/>
+        <!--ENCUESTAS-->
+        <action path="/LoadEncuestas" type="com.iammagis.appropiate.encuestas.LoadEncuestas">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/LoadEncuestaJson" type="com.iammagis.appropiate.encuestas.LoadEncuestaJson"/>
+        <action path="/EliminarEncuestas" type="com.iammagis.appropiate.encuestas.EliminarEncuestas"/>
+        <action name="Encuesta" path="/EditarEncuesta" type="com.iammagis.appropiate.encuestas.EditarEncuesta"/>
+        <action name="Encuesta" path="/CrearEncuestas" type="com.iammagis.appropiate.encuestas.CrearEncuestas"/>
+        <!--SOLICITUDES-->
+        <action path="/LoadSolicitudes" type="com.iammagis.appropiate.solicitudes.LoadSolicitudes">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/FinalizarSolicitud" type="com.iammagis.appropiate.solicitudes.FinalizarSolicitud"/>
+        <action path="/LoadSolicitudJson" type="com.iammagis.appropiate.solicitudes.LoadSolicitudJson"/>
+        <!--RESULTADO ENCUESTAS-->
+        <action path="/LoadResultadosEncuestas" type="com.iammagis.appropiate.encuestas.resultado.LoadResultadosEncuestas">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/LoadPersonasResultado" type="com.iammagis.appropiate.encuestas.resultado.LoadPersonasResultado"/>
+        <action path="/LoadResultadoDetalle" type="com.iammagis.appropiate.encuestas.resultado.LoadResultadoDetalle"/>
+        <action path="/ResumenResultado" type="com.iammagis.appropiate.encuestas.resultado.ResumenResultado"/>
+        <action path="/ResultadoEncuesta" type="com.iammagis.appropiate.encuestas.resultado.ResultadoEncuesta"/>
+        <!--HISTORIAL SOLICITUDES-->
+        <action path="/LoadHistoricoSolicitudes" type="com.iammagis.appropiate.solicitudes.historicos.LoadHistoricoSolicitudes">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/BuscarHistorial" type="com.iammagis.appropiate.solicitudes.historicos.BuscarHistorial"/>
+        <!--HISTORIAL DE EVENTOS-->
+        <action path="/LoadresultadoEventos" type="com.iammagis.appropiate.eventos.resultado.LoadresultadoEventos">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/ResultadoEvento" type="com.iammagis.appropiate.eventos.resultado.ResultadoEvento"/>
+        <!--LOAD ESTADISTICA CAMPANA-->
+        <action path="/LoadEstadisticasCampanas" type="com.iammagis.appropiate.campanas.resultado.LoadEstadisticasCampanas">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/RecuperarCorreo" type="com.iammagis.appropiate.mobile.RecuperarCorreo"/>
+        <action path="/GuardarRespuestas" type="com.iammagis.appropiate.mobile.GuardarRespuestas"/>
+        <action path="/getPreguntasEncuesta" type="com.iammagis.appropiate.mobile.getPreguntasEncuesta"/>
+        <action path="/CreateMeInteresa" type="com.iammagis.appropiate.mobile.CreateMeInteresa"/>
+        <action path="/CreateComentario" type="com.iammagis.appropiate.mobile.CreateComentario"/>
+        <action path="/getComentarios" type="com.iammagis.appropiate.mobile.getComentarios"/>
+        <action path="/CreatePQR" type="com.iammagis.appropiate.mobile.CreatePQR"/>
+        <action path="/getHome" type="com.iammagis.appropiate.mobile.getHome"/>
+        <action path="/getPQRS" type="com.iammagis.appropiate.mobile.getPQRS"/>
+        <action path="/getEncuestas" type="com.iammagis.appropiate.mobile.getEncuestas"/>
+        <action path="/PushNotification" type="com.iammagis.appropiate.mobile.PushNotification"/>
+        <action path="/LoginMobile" type="com.iammagis.appropiate.mobile.LoginMobile"/>
+        <action path="/getCampanas" type="com.iammagis.appropiate.mobile.getCampanas"/>
+        <action path="/getEventos" type="com.iammagis.appropiate.mobile.getEventos"/>
+        <action path="/ResultadoCampanas" type="com.iammagis.appropiate.campanas.resultado.ResultadoCampanas"/>
+        
+        <!--LOCACIONES-->
+        <action path="/LoadLocaciones" type="com.iammagis.appropiate.reservas.locaciones.LoadLocaciones">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <!--LISTA DE RESREVAS-->
+        <action path="/LoadListaReservas" type="com.iammagis.appropiate.reservas.lista.LoadListaReservas">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <!--PLANTILLA DE FACTURAS-->
+        <action path="/LoadPlantillaFactura" type="com.iammagis.appropiate.factuas.plantillas.LoadPlantillaFactura">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <!--FACTURAS-->
+        <action path="/LoadFacturas" type="com.iammagis.appropiate.factuas.facturas.LoadFacturas">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <!--TABLERO DE CONTROL-->
+        <action path="/LoadtableroDeControl" type="com.iammagis.appropiate.actividades.tablero.LoadtableroDeControl">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <!--GESTION ACTIVIDADES-->
+        <action path="/LoadGestionActividades" type="com.iammagis.appropiate.actividades.gestion.LoadGestionActividades">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/ChangeEntity" type="com.iammagis.appropiate.usuario.ChangeEntity">
+            <forward name="success" path="/contenedor/systema.jsp"/>
+            <forward name="fail" path="/login.jsp"/>
+        </action>
+        <action path="/LoadGruposDeInteres" type="com.iammagis.appropiate.gruposdeinteres.LoadGruposDeInteres">
+             <forward name="success" path="/contenedor/systema.jsp"/>
+        </action>
+        <action path="/RemoveReserva" type="com.iammagis.appropiate.mobile.RemoveReserva"/>
+        <action path="/getReservas" type="com.iammagis.appropiate.mobile.getReservas"/>
+        <action path="/GuardarReserva" type="com.iammagis.appropiate.mobile.GuardarReserva"/>
+        <action path="/RegisterMobile" type="com.iammagis.appropiate.mobile.RegisterMobile"/>
+        <action path="/GuardarPerfil" type="com.iammagis.appropiate.mobile.GuardarPerfil"/>
+        
+        <action path="/ConfirmationPayment" type="com.iammagis.appropiate.factuas.facturas.pagos.ConfirmationPayment"/>
+        <action path="/ReturnPayment" type="com.iammagis.appropiate.factuas.facturas.pagos.ReturnPayment"/>
+        <action path="/getPDF" type="com.iammagis.appropiate.mobile.getPDF"/>
+        <action path="/pagarFactura" type="com.iammagis.appropiate.mobile.pagarFactura"/>
+        <action path="/getFacturas" type="com.iammagis.appropiate.mobile.getFacturas"/>
+        <action path="/CreateReservaMovil" type="com.iammagis.appropiate.mobile.CreateReservaMovil"/>
+        <action path="/getEntidades" type="com.iammagis.appropiate.mobile.getEntidades"/>
+        <action path="/getLocaciones" type="com.iammagis.appropiate.mobile.getLocaciones"/>
+        <action path="/SaveGrupoUsuario" type="com.iammagis.appropiate.usuario.SaveGrupoUsuario"/>
+        <action path="/LoadGruposDeInteresJson" type="com.iammagis.appropiate.usuario.LoadGruposDeInteresJson"/>
+        <action name="GrupoInteres" path="/EditarGrupoDeInteres" type="com.iammagis.appropiate.gruposdeinteres.EditarGrupoDeInteres"/>
+        <action name="GrupoInteres" path="/CrearGrupoDeInteres" type="com.iammagis.appropiate.gruposdeinteres.CrearGrupoDeInteres"/>
+        <action path="/EliminarGrupoDeInteres" type="com.iammagis.appropiate.gruposdeinteres.EliminarGrupoDeInteres"/>
+        <action path="/LoadGrupoDeInteresJson" type="com.iammagis.appropiate.gruposdeinteres.LoadGrupoDeInteresJson"/>
+        <action path="/RecordatorioFactura" type="com.iammagis.appropiate.factuas.facturas.RecordatorioFactura"/>
+        <action path="/PagarFactura" type="com.iammagis.appropiate.factuas.facturas.PagarFactura"/>
+        <action path="/EliminarFactura" type="com.iammagis.appropiate.factuas.facturas.EliminarFactura"/>
+        <action path="/LoadFacturaJson" type="com.iammagis.appropiate.factuas.facturas.LoadFacturaJson"/>
+        <action name="Factura" path="/EditarFactura" type="com.iammagis.appropiate.factuas.facturas.EditarFactura"/>
+        <action name="Factura" path="/CrearFactura" type="com.iammagis.appropiate.factuas.facturas.CrearFactura"/>
+        <action path="/LoadPlantillaJson" type="com.iammagis.appropiate.factuas.plantillas.LoadPlantillaJson"/>
+        <action path="/EliminarPlantilla" type="com.iammagis.appropiate.factuas.plantillas.EliminarPlantilla"/>
+        <action name="FacturaTemplate" path="/EditarPlantilla" type="com.iammagis.appropiate.factuas.plantillas.EditarPlantilla"/>
+        <action name="FacturaTemplate" path="/CrearPlantilla" type="com.iammagis.appropiate.factuas.plantillas.CrearPlantilla"/>
+        <action path="/EliminarActividad" type="com.iammagis.appropiate.actividades.gestion.EliminarActividad"/>
+        <action path="/EditarActividad" type="com.iammagis.appropiate.actividades.gestion.EditarActividad"/>
+        <action path="/CrearActividad" type="com.iammagis.appropiate.actividades.gestion.CrearActividad"/>
+        <action path="/AprobarReserva" type="com.iammagis.appropiate.reservas.lista.AprobarReserva"/>
+        <action path="/EliminarReserva" type="com.iammagis.appropiate.reservas.lista.EliminarReserva"/>
+        <action path="/EditarReserva" type="com.iammagis.appropiate.reservas.lista.EditarReserva"/>
+        <action path="/CrearReserva" type="com.iammagis.appropiate.reservas.lista.CrearReserva"/>
+        <action path="/EliminarLocacion" type="com.iammagis.appropiate.reservas.locaciones.EliminarLocacion"/>
+        <action name="Locacion" path="/EditarLocacion" type="com.iammagis.appropiate.reservas.locaciones.EditarLocacion"/>
+        <action name="Locacion" path="/CrearLocacion" type="com.iammagis.appropiate.reservas.locaciones.CrearLocacion"/>
+        <action path="/LoadLocacionJson" type="com.iammagis.appropiate.reservas.locaciones.LoadLocacionJson"/>
+        <action path="/LoadComentarios" type="com.iammagis.appropiate.comentario.LoadComentarios"/>
+        <action path="/SaveComentario" type="com.iammagis.appropiate.comentario.SaveComentario"/> 
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/iammagis/appropiate/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
